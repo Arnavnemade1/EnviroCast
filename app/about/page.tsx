@@ -542,4 +542,58 @@ const AboutPage = () => {
         
         @keyframes orbit {
           from { transform: rotate(0deg) translateX(40px) rotate(0deg); }
-          to { transform: rotate(360deg) translate
+          to { transform: rotate(360deg) translateX(40px) rotate(-360deg); }
+        }
+        
+        @keyframes grow {
+          from { height: 0%; }
+          to { height: var(--target-height); }
+        }
+        
+        @keyframes spin-slow {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        .animate-twinkle {
+          animation: twinkle 2s ease-in-out infinite;
+        }
+        
+        .animate-orbit {
+          animation: orbit 4s linear infinite;
+        }
+        
+        .animate-grow {
+          animation: grow 1.5s ease-out forwards;
+        }
+        
+        .animate-spin-slow {
+          animation: spin-slow 3s linear infinite;
+        }
+        
+        .animate-fade-in-up {
+          animation: fade-in-up 0.8s ease-out;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+const CheckCircle = ({ className }) => (
+  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  </svg>
+);
+
+export default AboutPage;
